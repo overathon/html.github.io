@@ -2,18 +2,25 @@
 <html>
   <head>
     <title>HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <style>
     /*
       Input File : Custom Style & Load -> preview image
       Source : https://codepen.io/luizomf/pen/YzaKqEB
     */
+
+    #frame_file_input {
+      padding: 15px;
+    }
+    
     #picture__input {
       display: none;
     }
     
     .picture {
-      width: 400px;
+      width: 300px;
+      height: 600px;
       aspect-ratio: 16/9;
       background: #ddd;
       display: flex;
@@ -52,7 +59,7 @@
   <body>
 
     <!--Input File : Custom Style & Load -> preview image-->
-    <div>
+    <div id="frame_file_input">
       <p><b>File Upload : </b></p>
       <label class="picture" for="picture__input" tabIndex="0">
         <span class="picture__image"></span>
