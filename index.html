@@ -57,7 +57,13 @@
     }
   </style>
   <body>
-
+    
+    <!--Open Activity-->
+    <div>
+      <button id="open_activity">Open Activity</button>
+    </div>
+    <!--\END-->
+    
     <!--Input File : Custom Style & Load -> preview image-->
     <div id="frame_file_input">
       <p><b>File Upload : </b></p>
@@ -71,6 +77,18 @@
 
     
   </body>
+  
+  <!--Open Activity-->
+  <script type="text/javascript">
+    
+    document.getElementById("open_activity").addEventListener("click", openActivity);
+    
+    function moveToScreen() {
+      
+      Android.openActivity();
+    }
+  </script>
+  <!--\END-->
   
   <!--Input File : Custom Style & Load -> preview image-->
   <script type="text/javascript">
