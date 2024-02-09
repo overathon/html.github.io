@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>HTML</title>
+  </head>
+  <style>
+    /*
+      Input File : Custom Style & Load -> preview image
+      Source : https://codepen.io/luizomf/pen/YzaKqEB
+    */
+    #picture__input {
+      display: none;
+    }
+    
+    .picture {
+      width: 400px;
+      aspect-ratio: 16/9;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      border: 2px dashed currentcolor;
+      cursor: pointer;
+      font-family: sans-serif;
+      transition: color 300ms ease-in-out, background 300ms ease-in-out;
+      outline: none;
+      overflow: hidden;
+    }
+    
+    .picture:hover {
+      color: #777;
+      background: #ccc;
+    }
+    
+    .picture:active {
+      border-color: turquoise;
+      color: turquoise;
+      background: #eee;
+    }
+    
+    .picture:focus {
+      color: #777;
+      background: #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .picture__img {
+      max-width: 100%;
+    }
+  </style>
+  <body>
+
+    <!--Input File : Custom Style & Load -> preview image-->
+    <div>
+      <label class="picture" for="picture__input" tabIndex="0">
+        <span class="picture__image"></span>
+      </label>
+      
+      <input type="file" name="picture__input" id="picture__input">
+    </div>
+    <!--\END-->
+
+    
+  </body>
+
+  <p><b>File Upload : </b></p>
+  <!--Input File : Custom Style & Load -> preview image-->
+  <script type="text/javascript">
+    const inputFile = document.querySelector("#picture__input");
+    const pictureImage = document.querySelector(".picture__image");
+    const pictureImageTxt = "Choose an image";
+    pictureImage.innerHTML = pictureImageTxt;
+    
+    inputFile.addEventListener("change", function (e) {
+      const inputTarget = e.target;
+      const file = inputTarget.files[0];
+    
+      if (file) {
+        const reader = new FileReader();
+    
+        reader.addEventListener("load", function (e) {
+          const readerTarget = e.target;
+    
+          const img = document.createElement("img");
+          img.src = readerTarget.result;
+          img.classList.add("picture__img");
+    
+          pictureImage.innerHTML = "";
+          pictureImage.appendChild(img);
+        });
+    
+        reader.readAsDataURL(file);
+      } else {
+        pictureImage.innerHTML = pictureImageTxt;
+      }
+    });
+  </script>
+  <!--\END-->
+</html>
